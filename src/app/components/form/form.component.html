@@ -1,9 +1,71 @@
 <form (submit)="onSubmit()" [formGroup]="form">
 
-  <label for="field">Field</label>
-  <input type="text" formControlName="field" id="field">
+  <div class="inputs-container">
 
-  <button type="submit">Enviar</button>
-  <button type="button" (click)="resetForm()">Limpar</button>
+    <div class="input-container">
+      <label for="firstName">Nome</label>
+      <input type="text" formControlName="firstName" id="firstName" placeholder="digite seu nome...">
+    </div>
+  
+    <div class="input-container">
+      <label for="lastName">Sobrenome</label>
+      <input type="text" formControlName="lastName" id="lastName" placeholder="digite seu sobrenome...">
+    </div>
+  
+    <div class="input-container">
+      <label for="phoneNumber">Telefone</label>
+      <input type="text" formControlName="phoneNumber" id="phoneNumber" placeholder="digite seu nº de telefone...">
+    </div>
+  
+    <div class="input-container">
+      <label for="cellPhone">Celular</label>
+      <input type="text" formControlName="cellPhone" id="cellPhone" placeholder="digite seu nº de celular...">
+    </div>
+  
+    <div class="input-container">
+      <label for="email">Email</label>
+      <input type="text" formControlName="email" id="email" placeholder="digite seu endereço de email...">
+    </div>
+  
+    <div class="input-container">
+      <label for="reporterActivityArea">Área de atuação do relator</label>
+      <select id="reporterActivityArea" formControlName="reporterActivityArea">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="opel">Opel</option>
+        <option value="audi">Audi</option>
+      </select>
+    </div>
+  
+    <div class="datetime-input-container">
+  
+      <div class="date-container">
+        <label for="date">Data</label>
+        <input type="date" formControlName="date" id="date">
+      </div>
+  
+      <div class="time-container">
+        <label for="time">Hora</label>
+        <input type="time" formControlName="time" id="time">
+      </div>
+  
+    </div>
+  
+    <div class="input-container">
+      <label for="location">Local</label>
+      <input type="text" formControlName="location" id="location">
+    </div>
+  
+    <div class="input-container">
+      <label for="description">Descrição</label>
+      <textarea type="tex" formControlName="description" id="description"
+        placeholder="descreva o que ocorreu..."></textarea>
+    </div>
+
+  </div>
+
+  <button type="button">ANEXAR ARQUIVOS</button>
+  <button type="submit">ENVIAR</button>
+  <button type="button" (click)="resetForm()">LIMPAR</button>
 
 </form>

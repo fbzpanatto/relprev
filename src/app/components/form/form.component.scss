@@ -1,10 +1,49 @@
 :host {
   display: block;
 
+  
   form {
-    
+
+    background-color: #fff;
+
+    display: flex;
+    flex-direction: column;
+
     border: 1px solid #444;
     font-family: 'Interface RG';
 
+    .inputs-container {
+
+      display: flex;
+      flex-direction: column;
+      gap: 2vmin;
+
+      .input-container {
+        display: flex;
+        flex-direction: column;
+  
+        textarea {
+          resize: none;
+          height: 20vh;
+        }
+      }
+  
+      .datetime-input-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 2vmin;
+        gap: 2vmin;
+  
+        .date-container, .time-container {
+          display: flex;
+          flex: 1;
+          gap: 2vmin;
+
+          input {
+            flex: 1;
+          }
+        }
+      }
+    }
   }
 }

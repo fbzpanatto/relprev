@@ -9,13 +9,34 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
     CommonModule, ReactiveFormsModule
   ],
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss'],
+  styleUrls: ['./form.component.scss', '../../../styles/general.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormComponent implements OnInit {
 
   form = this.fb.group({
-    field: ['', {
+    firstName: ['', {
+      validators: [Validators.maxLength(60)]
+    }],
+    lastName: ['', {
+      validators: [Validators.maxLength(60)]
+    }],
+    phoneNumber: ['', {
+      validators: []
+    }],
+    cellPhone: ['', {
+      validators: []
+    }],
+    email: ['', {
+      validators: [Validators.email]
+    }],
+    reporterActivityArea: ['', {
+      validators: [Validators.required]
+    }],
+    date: ['', {}],
+    time: ['', {}],
+    location: ['', {}],
+    description: ['', {
       validators: [Validators.required]
     }]
   })
@@ -28,7 +49,7 @@ export class FormComponent implements OnInit {
     console.log('onSubmit', this.form.value)
   }
 
-  resetForm(){
+  resetForm() {
     console.log('resetando form...')
   }
 }
