@@ -1,33 +1,37 @@
-<form class="mobile" (submit)="onSubmit()" [formGroup]="form">
+<form [ngClass]="media" (submit)="onSubmit()" [formGroup]="form">
 
   <div class="inputs-container">
+    
+    <div class="flx-col">
+      <div class="flx-col-item">
+        <label for="firstName">Nome</label>
+        <input type="text" formControlName="firstName" id="firstName" placeholder="digite seu nome...">
+      </div>
 
-    <div class="input-container">
-      <label for="firstName">Nome</label>
-      <input type="text" formControlName="firstName" id="firstName" placeholder="digite seu nome...">
+      <div class="flx-col-item">
+        <label for="lastName">Sobrenome</label>
+        <input type="text" formControlName="lastName" id="lastName" placeholder="digite seu sobrenome...">
+      </div>
+    </div>
+
+    <div class="flx-col">
+      <div class="flx-col-item">
+        <label for="phoneNumber">Telefone</label>
+        <input type="text" formControlName="phoneNumber" id="phoneNumber" placeholder="digite seu nº de telefone...">
+      </div>
+    
+      <div class="flx-col-item">
+        <label for="cellPhone">Celular</label>
+        <input type="text" formControlName="cellPhone" id="cellPhone" placeholder="digite seu nº de celular...">
+      </div>
     </div>
   
-    <div class="input-container">
-      <label for="lastName">Sobrenome</label>
-      <input type="text" formControlName="lastName" id="lastName" placeholder="digite seu sobrenome...">
-    </div>
-  
-    <div class="input-container">
-      <label for="phoneNumber">Telefone</label>
-      <input type="text" formControlName="phoneNumber" id="phoneNumber" placeholder="digite seu nº de telefone...">
-    </div>
-  
-    <div class="input-container">
-      <label for="cellPhone">Celular</label>
-      <input type="text" formControlName="cellPhone" id="cellPhone" placeholder="digite seu nº de celular...">
-    </div>
-  
-    <div class="input-container">
+    <div class="flx-row">
       <label for="email">Email</label>
       <input type="text" formControlName="email" id="email" placeholder="digite seu endereço de email...">
     </div>
   
-    <div class="input-container">
+    <div class="flx-row">
       <label for="reporterActivityArea">Área de atuação do relator</label>
       <select id="reporterActivityArea" formControlName="reporterActivityArea">
         <option value="volvo" selected hidden>Escolha uma opção</option>
@@ -38,41 +42,43 @@
       </select>
     </div>
   
-    <div class="datetime-input-container">
+    <div class="flx-col">
   
-      <div class="date-container">
+      <div class="flx-col-item">
         <label for="date">Data</label>
         <input type="date" formControlName="date" id="date">
       </div>
   
-      <div class="time-container">
+      <div class="flx-col-item">
         <label for="time">Hora</label>
         <input type="time" formControlName="time" id="time">
       </div>
   
     </div>
   
-    <div class="input-container">
+    <div class="flx-row">
       <label for="location">Local</label>
       <input type="text" formControlName="location" id="location">
     </div>
   
-    <div class="input-container">
+    <div class="flx-row">
       <label for="description">Descrição*</label>
       <textarea type="tex" formControlName="description" id="description"
         placeholder="descreva o que ocorreu..."></textarea>
     </div>
 
-    <div class="input-container">
+    <div class="flx-row">
       <label for="upload-file">Anexe uma evidência se houver.</label>
-      <input #uploadFile type="file" id="upload-file">
+      <input #uploadFile type="file" id="upload-file" class="upload-file">
+      <button type="button" (click)="setFile($event, uploadFile)">ANEXAR UM ARQUIVO</button>
+      <span>{{ currentFileName }}</span>
     </div>
 
   </div>
 
   <div class="actions-container">
-    <button type="submit">ENVIAR</button>
     <button class="contrast" type="button" (click)="resetForm()">LIMPAR</button>
+    <button type="submit">ENVIAR</button>
   </div>
 
 </form>

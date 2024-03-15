@@ -18,6 +18,15 @@ input, textarea, select {
   }
 }
 
+input.upload-file {
+  display: none;
+}
+
+textarea {
+  resize: none;
+  height: 20vh;
+}
+
 button {
   border: 1px solid $cececeColor;
   border-radius: $borderBtnRadius;

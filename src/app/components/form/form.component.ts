@@ -14,6 +14,9 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
+  #media?: string
+  #currentFileName?: string
+
   form = this.fb.group({
     firstName: ['', {
       validators: [Validators.maxLength(60)]
@@ -43,7 +46,9 @@ export class FormComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.#media = undefined
+  }
 
   onSubmit() {
     console.log('onSubmit', this.form.value)
@@ -53,8 +58,16 @@ export class FormComponent implements OnInit {
     console.log('resetando form...')
   }
 
-  setFile($event: Event, el: HTMLElement) {
+  setFile($event: Event, el: HTMLInputElement) {
+    $event.preventDefault()
     el.click()
-    console.log(el)
+    const file = el.files?.item(0)
+    this.currentFileName = file?.name
   }
+
+  get currentFileName() { return this.#currentFileName }
+  set currentFileName(value: string | undefined) { this.#currentFileName = value }
+
+  get media() { return this.#media }
+  set media(value: string | undefined) { this.#media = value }
 }

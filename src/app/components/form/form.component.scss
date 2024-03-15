@@ -3,53 +3,41 @@
 
   form {
 
-    &.mobile {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Interface RG';
+    gap: 8vmin;
+    padding: 0 8vmin;
+
+    .inputs-container {
 
       display: flex;
       flex-direction: column;
-      font-family: 'Interface RG';
-      gap: 8vmin;
-  
-      .inputs-container {
-  
+      gap: 3vmin;
+
+      .flx-row {
         display: flex;
         flex-direction: column;
-        gap: 3vmin;
-  
-        .input-container {
+        gap: 1vmin;
+      }
+
+      .flx-col {
+        display: flex;
+        gap: 4vmin;
+
+        .flx-col-item {
           display: flex;
           flex-direction: column;
+          flex: 1;
           gap: 1vmin;
-    
-          textarea {
-            resize: none;
-            height: 20vh;
-          }
-        }
-    
-        .datetime-input-container {
-          display: flex;
-          flex-direction: row;
-          gap: 4vmin;
-    
-          .date-container, .time-container {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            gap: 1vmin;
-  
-            input {
-              flex: 1;
-            }
-          }
         }
       }
-  
-      .actions-container  {
-        display: flex;
-        flex-direction: column;
-        gap: 2vmin;
-      }
+    }
+
+    .actions-container  {
+      display: flex;
+      flex-direction: column;
+      gap: 4vmin;
     }
   }
 }
