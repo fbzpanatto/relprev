@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, effect, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, effect, input, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
@@ -14,10 +14,10 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
-  isMaxWidth728 = input(false)
-
-  #media?: string
+  condition = input(false)
   #currentFileName?: string
+
+  media = signal<string | undefined>('')
 
   form = this.fb.group({
     firstName: ['', {
@@ -46,21 +46,20 @@ export class FormComponent implements OnInit {
     }]
   })
 
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder) {
 
     effect(() => {
-      const condition = this.isMaxWidth728()
+      const condition = this.condition()
 
-      if(condition) {
-        console.log('menor que 728')
+      if (condition) {
+        this.media.update(curr => curr = undefined)
       } else {
-        console.log('maior que 728')
+        this.media.update(curr => curr = 'min-width-728')
       }
-    })
+    }, { allowSignalWrites: true })
   }
 
   ngOnInit(): void {
-    this.#media = undefined
   }
 
   onSubmit() {
@@ -80,7 +79,4 @@ export class FormComponent implements OnInit {
 
   get currentFileName() { return this.#currentFileName }
   set currentFileName(value: string | undefined) { this.#currentFileName = value }
-
-  get media() { return this.#media }
-  set media(value: string | undefined) { this.#media = value }
 }

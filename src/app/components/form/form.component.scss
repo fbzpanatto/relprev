@@ -39,5 +39,10 @@
       flex-direction: column;
       gap: 4vmin;
     }
+
+    &.min-width-728 {
+
+    background-color: yellow;
+    }
   }
 }
