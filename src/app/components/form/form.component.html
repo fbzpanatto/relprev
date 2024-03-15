@@ -1,7 +1,7 @@
 <form [ngClass]="media" (submit)="onSubmit()" [formGroup]="form">
 
   <div class="inputs-container">
-    
+
     <div class="flx-col">
       <div class="flx-col-item">
         <label for="firstName">Nome</label>
@@ -19,18 +19,18 @@
         <label for="phoneNumber">Telefone</label>
         <input type="text" formControlName="phoneNumber" id="phoneNumber" placeholder="digite seu nº de telefone...">
       </div>
-    
+
       <div class="flx-col-item">
         <label for="cellPhone">Celular</label>
         <input type="text" formControlName="cellPhone" id="cellPhone" placeholder="digite seu nº de celular...">
       </div>
     </div>
-  
+
     <div class="flx-row">
       <label for="email">Email</label>
       <input type="text" formControlName="email" id="email" placeholder="digite seu endereço de email...">
     </div>
-  
+
     <div class="flx-row">
       <label for="reporterActivityArea">Área de atuação do relator</label>
       <select id="reporterActivityArea" formControlName="reporterActivityArea">
@@ -41,26 +41,26 @@
         <option value="audi">Audi</option>
       </select>
     </div>
-  
+
     <div class="flx-col">
-  
+
       <div class="flx-col-item">
         <label for="date">Data</label>
         <input type="date" formControlName="date" id="date">
       </div>
-  
+
       <div class="flx-col-item">
         <label for="time">Hora</label>
         <input type="time" formControlName="time" id="time">
       </div>
-  
+
     </div>
-  
+
     <div class="flx-row">
       <label for="location">Local</label>
       <input type="text" formControlName="location" id="location">
     </div>
-  
+
     <div class="flx-row">
       <label for="description">Descrição*</label>
       <textarea type="tex" formControlName="description" id="description"
