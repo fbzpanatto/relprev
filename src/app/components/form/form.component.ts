@@ -15,7 +15,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 export class FormComponent implements OnInit {
 
   condition = input(false)
-  media = signal<string | undefined>('')
+  media = signal('')
   
   #currentFileName?: string
 
@@ -50,7 +50,7 @@ export class FormComponent implements OnInit {
 
     effect(() => {
       this.condition() ?
-        this.media.update(curr => curr = undefined) :
+        this.media.update(curr => curr = '') :
         this.media.update(curr => curr = 'min-width-728')
     }, { allowSignalWrites: true })
   }
