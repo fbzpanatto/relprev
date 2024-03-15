@@ -29,15 +29,14 @@
     
         .datetime-input-container {
           display: flex;
-          justify-content: space-between;
-          padding: 1vmin 2vmin;
-          gap: 2vmin;
+          flex-direction: row;
+          gap: 4vmin;
     
           .date-container, .time-container {
             display: flex;
-            align-items: center;
+            flex-direction: column;
             flex: 1;
-            gap: 2vmin;
+            gap: 1vmin;
   
             input {
               flex: 1;
