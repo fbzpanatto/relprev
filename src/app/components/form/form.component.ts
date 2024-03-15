@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, effect, input } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
@@ -13,6 +13,8 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormComponent implements OnInit {
+
+  isMaxWidth728 = input(false)
 
   #media?: string
   #currentFileName?: string
@@ -44,7 +46,18 @@ export class FormComponent implements OnInit {
     }]
   })
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) { 
+
+    effect(() => {
+      const condition = this.isMaxWidth728()
+
+      if(condition) {
+        console.log('menor que 728')
+      } else {
+        console.log('maior que 728')
+      }
+    })
+  }
 
   ngOnInit(): void {
     this.#media = undefined
