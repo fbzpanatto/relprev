@@ -1,4 +1,40 @@
+@import './variables.scss';
+
+label {
+  color: #333;
+  font-family: 'Interface BD';
+  font-size: 10pt;
+}
+
+input, textarea, select {
+  border: 1px solid $cececeColor;
+  border-radius: $borderInputRadius;
+  background-color: #ffffff;
+  padding: 16px;
+  color: #444;
+
+  &::placeholder {
+    font-style: italic;
+  }
+}
+
 button {
-  border: 1px solid #cecece;
-  border-radius: 4px;
+  border: 1px solid $cececeColor;
+  border-radius: $borderBtnRadius;
+  
+  padding: 2vmin 1vmin;
+  letter-spacing: .1rem;
+  font-weight: bold;
+
+  background-color: #444;
+  color: #fff;
+
+  &.contrast {
+    background-color: #fff;
+    color: #444;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
 }

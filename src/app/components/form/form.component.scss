@@ -1,48 +1,55 @@
 :host {
   display: block;
 
-  
   form {
 
-    background-color: #fff;
-
-    display: flex;
-    flex-direction: column;
-
-    border: 1px solid #444;
-    font-family: 'Interface RG';
-
-    .inputs-container {
+    &.mobile {
 
       display: flex;
       flex-direction: column;
-      gap: 2vmin;
-
-      .input-container {
+      font-family: 'Interface RG';
+      gap: 8vmin;
+  
+      .inputs-container {
+  
         display: flex;
         flex-direction: column;
+        gap: 3vmin;
   
-        textarea {
-          resize: none;
-          height: 20vh;
+        .input-container {
+          display: flex;
+          flex-direction: column;
+          gap: 1vmin;
+    
+          textarea {
+            resize: none;
+            height: 20vh;
+          }
+        }
+    
+        .datetime-input-container {
+          display: flex;
+          justify-content: space-between;
+          padding: 1vmin 2vmin;
+          gap: 2vmin;
+    
+          .date-container, .time-container {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            gap: 2vmin;
+  
+            input {
+              flex: 1;
+            }
+          }
         }
       }
   
-      .datetime-input-container {
+      .actions-container  {
         display: flex;
-        justify-content: space-between;
-        padding: 0 2vmin;
+        flex-direction: column;
         gap: 2vmin;
-  
-        .date-container, .time-container {
-          display: flex;
-          flex: 1;
-          gap: 2vmin;
-
-          input {
-            flex: 1;
-          }
-        }
       }
     }
   }

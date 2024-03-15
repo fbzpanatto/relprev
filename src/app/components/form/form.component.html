@@ -1,4 +1,4 @@
-<form (submit)="onSubmit()" [formGroup]="form">
+<form class="mobile" (submit)="onSubmit()" [formGroup]="form">
 
   <div class="inputs-container">
 
@@ -30,6 +30,7 @@
     <div class="input-container">
       <label for="reporterActivityArea">Área de atuação do relator</label>
       <select id="reporterActivityArea" formControlName="reporterActivityArea">
+        <option value="volvo" selected hidden>Escolha uma opção</option>
         <option value="volvo">Volvo</option>
         <option value="saab">Saab</option>
         <option value="opel">Opel</option>
@@ -57,15 +58,21 @@
     </div>
   
     <div class="input-container">
-      <label for="description">Descrição</label>
+      <label for="description">Descrição*</label>
       <textarea type="tex" formControlName="description" id="description"
         placeholder="descreva o que ocorreu..."></textarea>
     </div>
 
+    <div class="input-container">
+      <label for="upload-file">Anexe uma evidência se houver.</label>
+      <input #uploadFile type="file" id="upload-file">
+    </div>
+
   </div>
 
-  <button type="button">ANEXAR ARQUIVOS</button>
-  <button type="submit">ENVIAR</button>
-  <button type="button" (click)="resetForm()">LIMPAR</button>
+  <div class="actions-container">
+    <button type="submit">ENVIAR</button>
+    <button class="contrast" type="button" (click)="resetForm()">LIMPAR</button>
+  </div>
 
 </form>

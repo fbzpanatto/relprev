@@ -52,4 +52,9 @@ export class FormComponent implements OnInit {
   resetForm() {
     console.log('resetando form...')
   }
+
+  setFile($event: Event, el: HTMLElement) {
+    el.click()
+    console.log(el)
+  }
 }
