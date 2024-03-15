@@ -1,5 +1,9 @@
-<form>
+<form (submit)="onSubmit()" [formGroup]="form">
 
-  <p>teste</p>
+  <label for="field">Field</label>
+  <input type="text" formControlName="field" id="field">
+
+  <button type="submit">Enviar</button>
+  <button type="button" (click)="resetForm()">Limpar</button>
 
 </form>
