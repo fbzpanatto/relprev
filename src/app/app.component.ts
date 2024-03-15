@@ -33,6 +33,8 @@ export class AppComponent {
 
   setBreakpointObserver() {
 
+    // TODO: create one more media query. change it to switch.
+
     const maxWidth728 = '(max-width: 728px)'
     const minWidth728 = '(min-width: 728px)'
 

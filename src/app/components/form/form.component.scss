@@ -42,7 +42,17 @@
 
     &.min-width-728 {
 
-    background-color: yellow;
+      padding: 0 16vw;
+
+      .actions-container  {
+        display: flex;
+        flex-direction: row;
+        gap: 4vmin;
+
+        button {
+          flex: 1;
+        }
+      }
     }
   }
 }
