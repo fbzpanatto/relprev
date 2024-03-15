@@ -15,9 +15,9 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 export class FormComponent implements OnInit {
 
   condition = input(false)
-  #currentFileName?: string
-
   media = signal<string | undefined>('')
+  
+  #currentFileName?: string
 
   form = this.fb.group({
     firstName: ['', {
@@ -49,13 +49,9 @@ export class FormComponent implements OnInit {
   constructor(private fb: FormBuilder) {
 
     effect(() => {
-      const condition = this.condition()
-
-      if (condition) {
-        this.media.update(curr => curr = undefined)
-      } else {
+      this.condition() ?
+        this.media.update(curr => curr = undefined) :
         this.media.update(curr => curr = 'min-width-728')
-      }
     }, { allowSignalWrites: true })
   }
 
