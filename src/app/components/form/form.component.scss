@@ -128,10 +128,6 @@
         grid-area: span 2
       }
 
-      .field-container.file-container {
-        @extend %fileContainerMinHeight
-      }
-
       .actions-container {
 
         grid-column-start: 3;
