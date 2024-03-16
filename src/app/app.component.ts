@@ -1,7 +1,7 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormComponent } from "./components/form/form.component";
-import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints, MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ export class AppComponent {
 
   title = 'relprev';
 
-  condition!: boolean
+  typeOfMedia = ''
 
   #mobileQueryListener: (() => void) | undefined;
   #mobileQuery!: MediaQueryList;
@@ -33,19 +33,21 @@ export class AppComponent {
 
   setBreakpointObserver() {
 
-    // TODO: create one more media query. change it to switch.
-
-    const maxWidth728 = '(max-width: 728px)'
-    const minWidth728 = '(min-width: 728px)'
+    const breakpointsArray = [Breakpoints.XSmall, Breakpoints.Small, Breakpoints.Medium, Breakpoints.Large, Breakpoints.XLarge]
 
     this.responsive
-      .observe([maxWidth728, minWidth728])
+      .observe(breakpointsArray)
       .subscribe(result => {
-        const breakpoints = result.breakpoints;
-        const isMaxWidth728 = breakpoints[maxWidth728]
-        const isMinWidth728 = breakpoints[minWidth728]
 
-        this.condition = !isMinWidth728 && isMaxWidth728
+        const breakpoints = result.breakpoints;
+
+        if (breakpoints[Breakpoints.XSmall]) { this.typeOfMedia = 'xsmall' }
+
+        if (breakpoints[Breakpoints.Small]) { this.typeOfMedia = 'small' }
+
+        if (breakpoints[Breakpoints.Medium]) { this.typeOfMedia = 'medium' }
+
+        if (breakpoints[Breakpoints.Large || Breakpoints.XLarge ] ) { this.typeOfMedia = 'xlarge' }
       });
   }
 }

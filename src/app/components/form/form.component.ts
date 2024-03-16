@@ -14,9 +14,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
-  condition = input(false)
-
-  #media = signal('')
+  typeOfMedia = input('')
   #currentFileName?: string
 
   form = this.fb.group({
@@ -48,11 +46,11 @@ export class FormComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
 
-    effect(() => {
-      this.condition() ?
-        this.#media.update(curr => curr = '') :
-        this.#media.update(curr => curr = 'min-width-728')
-    }, { allowSignalWrites: true })
+    // effect(() => {
+
+    //   console.log('this.typeOfMedia()', this.typeOfMedia())
+
+    // }, { allowSignalWrites: true })
   }
 
   ngOnInit(): void {
@@ -72,8 +70,7 @@ export class FormComponent implements OnInit {
     const file = el.files?.item(0)
     this.currentFileName = file?.name
   }
-
-  get mediaSignal() { return this.#media.asReadonly() }
+  
   get currentFileName() { return this.#currentFileName }
   set currentFileName(value: string | undefined) { this.#currentFileName = value }
 }

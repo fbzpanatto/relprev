@@ -1,55 +1,104 @@
+%actionsContainerRowSettings {
+  grid-area: span 1 / span 2;
+
+  display: flex;
+  gap: 3vmin;
+
+  button {
+    flex: 1;
+  }
+}
+
 :host {
   display: block;
 
   form {
+    display: grid;
+    gap: 3vmin;
 
-    display: flex;
-    flex-direction: column;
-    font-family: 'Interface RG';
-    gap: 8vmin;
-    padding: 0 8vmin;
-
-    .inputs-container {
-
+    .field-container {
       display: flex;
       flex-direction: column;
-      gap: 3vmin;
+      gap: 1vmin;
+    }
 
-      .flx-row {
-        display: flex;
-        flex-direction: column;
-        gap: 1vmin;
+    &.xsmall {
+
+      padding: 0 8vw;
+
+      grid-template-columns: auto auto;
+
+      .field-container:nth-of-type(3),
+      .field-container:nth-of-type(6),
+      .field-container:nth-of-type(9),
+      .field-container:nth-of-type(10),
+      .field-container:nth-of-type(11) {
+        grid-area: span 1 / span 2;
       }
 
-      .flx-col {
-        display: flex;
-        gap: 4vmin;
+      input,
+      textarea,
+      select {
+        padding: 8px;
+      }
 
-        .flx-col-item {
-          display: flex;
-          flex-direction: column;
-          flex: 1;
-          gap: 1vmin;
-        }
+      .actions-container {
+        @extend %actionsContainerRowSettings;
       }
     }
 
-    .actions-container  {
-      display: flex;
-      flex-direction: column;
-      gap: 4vmin;
+    &.small {
+
+      padding: 0 8vw;
+
+      grid-template-columns: auto auto;
+
+      .field-container:nth-of-type(9),
+      .field-container:nth-of-type(10),
+      .field-container:nth-of-type(11) {
+        grid-area: span 1 / span 2;
+      }
+
+      .actions-container {
+        @extend %actionsContainerRowSettings;
+      }
     }
 
-    &.min-width-728 {
+    &.medium {
 
-      padding: 0 16vw;
 
-      .actions-container  {
+      padding: 0 12vw;
+
+      grid-template-columns: auto auto;
+
+      .field-container:nth-of-type(9),
+      .field-container:nth-of-type(10),
+      .field-container:nth-of-type(11) {
+        grid-area: span 1 / span 2;
+      }
+
+      .actions-container {
+        @extend %actionsContainerRowSettings;
+      }
+    }
+
+    &.xlarge {
+      padding: 0 12vw;
+
+      grid-template-columns: auto auto auto;
+
+      .field-container:nth-of-type(10) {
+        grid-area: span 2 / span 2;
+      }
+
+      .actions-container {
+
         display: flex;
-        flex-direction: row;
-        gap: 4vmin;
+        align-items: flex-end;
+        gap: 3vmin;
 
         button {
+          max-height: 50px;
           flex: 1;
         }
       }
