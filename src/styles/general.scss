@@ -1,22 +1,25 @@
 @import './variables.scss';
 
-h1, p {
-  color: #333;
+h1,
+p {
+  color: $darkGray333;
   font-family: 'Interface RG';
 }
 
 label {
-  color: #333;
+  color: $darkGray333;
   font-family: 'Interface BD';
   font-size: 10pt;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
   border: 1px solid $cececeColor;
   border-radius: $borderInputRadius;
-  background-color: #ffffff;
+  background-color: $white;
   padding: 12px;
-  color: #444;
+  color: $darkGray444;
 
   &::placeholder {
     font-style: italic;
@@ -36,17 +39,17 @@ button {
   font-family: 'Interface BD';
   border: 1px solid $cececeColor;
   border-radius: $borderBtnRadius;
-  
+
   padding: 2vmin 1vmin;
   letter-spacing: .1rem;
   font-weight: bold;
 
-  background-color: #444;
-  color: #fff;
+  background-color: $darkGray444;
+  color: $white;
 
   &.contrast {
-    background-color: #fff;
-    color: #444;
+    background-color: $white;
+    color: $darkGray444;
   }
 
   &:hover {

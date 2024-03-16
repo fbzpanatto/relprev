@@ -101,26 +101,26 @@
       }
     }
 
-    &.medium {
+    // &.medium {
 
-      padding: 0 12vw;
+    //   padding: 0 12vw;
 
-      grid-template-columns: auto auto;
+    //   grid-template-columns: auto auto;
 
-      .field-container:nth-of-type(9),
-      .field-container:nth-of-type(10),
-      .field-container:nth-of-type(11) {
-        grid-area: span 1 / span 2;
-      }
+    //   .field-container:nth-of-type(9),
+    //   .field-container:nth-of-type(10),
+    //   .field-container:nth-of-type(11) {
+    //     grid-area: span 1 / span 2;
+    //   }
 
-      .field-container.file-container {
-        @extend %fileContainerMinHeight
-      }
+    //   .field-container.file-container {
+    //     @extend %fileContainerMinHeight
+    //   }
 
-      .actions-container {
-        @extend %actionsContainerRowSettings;
-      }
-    }
+    //   .actions-container {
+    //     @extend %actionsContainerRowSettings;
+    //   }
+    // }
 
     &.xlarge {
       padding: 0 14vw;

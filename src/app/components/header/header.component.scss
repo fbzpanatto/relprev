@@ -13,6 +13,17 @@
 
     p {
       font-size: 12pt;
+
+      a {
+        font-family: 'Interface BD';
+        text-decoration: underline;
+        &:hover {
+          cursor: pointer;
+        }
+        &:visited {
+          color: #333;
+        }
+      }
     }
 
     &.xsmall {
