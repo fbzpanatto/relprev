@@ -63,9 +63,9 @@
       <input #uploadFile type="file" id="upload-file" class="upload-file">
       <button type="button" (click)="setFile($event, uploadFile)">ANEXAR UM ARQUIVO</button>
       @if(currentFileName) {
-      <span>{{ currentFileName }}</span>
+      <span class="file-name">{{ currentFileName }}</span>
       } @else {
-      <span>Nenhum arquivo selecionado.</span>
+      <span class="file-name">Nenhum arquivo selecionado.</span>
       }
     </div>
   </div>
