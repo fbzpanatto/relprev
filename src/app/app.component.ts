@@ -5,11 +5,11 @@ import { BreakpointObserver, Breakpoints, MediaMatcher } from '@angular/cdk/layo
 import { HeaderComponent } from "./components/header/header.component";
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss',
-    imports: [RouterOutlet, FormComponent, HeaderComponent]
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
+  imports: [RouterOutlet, FormComponent, HeaderComponent]
 })
 export class AppComponent {
 
@@ -46,9 +46,12 @@ export class AppComponent {
 
         if (breakpoints[Breakpoints.Small]) { this.typeOfMedia = 'small' }
 
-        if (breakpoints[Breakpoints.Medium]) { this.typeOfMedia = 'medium' }
+        // if (breakpoints[Breakpoints.Medium]) { this.typeOfMedia = 'medium' }
 
-        if (breakpoints[Breakpoints.Large || Breakpoints.XLarge ] ) { this.typeOfMedia = 'xlarge' }
+        if (
+          breakpoints[Breakpoints.Medium] ||
+          breakpoints[Breakpoints.Large ||
+          Breakpoints.XLarge]) { this.typeOfMedia = 'xlarge' }
       });
   }
 }
