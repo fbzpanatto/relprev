@@ -2,13 +2,14 @@ import { Component, ChangeDetectorRef } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormComponent } from "./components/form/form.component";
 import { BreakpointObserver, Breakpoints, MediaMatcher } from '@angular/cdk/layout';
+import { HeaderComponent } from "./components/header/header.component";
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-  imports: [RouterOutlet, FormComponent]
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    imports: [RouterOutlet, FormComponent, HeaderComponent]
 })
 export class AppComponent {
 

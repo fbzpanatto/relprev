@@ -1,0 +1,34 @@
+:host {
+  display: block;
+
+  header {
+
+    display: flex;
+    flex-direction: column;
+    gap: 3vmin;
+
+    h1 {
+      font-size: 18pt;
+    }
+
+    p {
+      font-size: 12pt;
+    }
+
+    &.xsmall {
+      padding: 0 20vw 0 8vw;
+    }
+
+    &.small {
+      padding: 0 20vw 0 8vw;
+    }
+
+    &.medium {
+      padding: 0 40vw 0 12vw;
+    }
+
+    &.xlarge {
+      padding: 0 45vw 0 12vw;
+    }
+  }
+}

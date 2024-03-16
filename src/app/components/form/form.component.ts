@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, effect, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, input } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
@@ -36,22 +36,21 @@ export class FormComponent implements OnInit {
     reporterActivityArea: ['', {
       validators: [Validators.required]
     }],
-    date: ['', {}],
-    time: ['', {}],
-    location: ['', {}],
+    date: ['', {
+      validators: [Validators.required]
+    }],
+    time: ['', {
+      validators: [Validators.required]
+    }],
+    location: ['', {
+      validators: [Validators.required]
+    }],
     description: ['', {
       validators: [Validators.required]
     }]
   })
 
-  constructor(private fb: FormBuilder) {
-
-    // effect(() => {
-
-    //   console.log('this.typeOfMedia()', this.typeOfMedia())
-
-    // }, { allowSignalWrites: true })
-  }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
@@ -70,7 +69,7 @@ export class FormComponent implements OnInit {
     const file = el.files?.item(0)
     this.currentFileName = file?.name
   }
-  
+
   get currentFileName() { return this.#currentFileName }
   set currentFileName(value: string | undefined) { this.#currentFileName = value }
 }

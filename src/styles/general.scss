@@ -1,5 +1,10 @@
 @import './variables.scss';
 
+h1, p {
+  color: #333;
+  font-family: 'Interface RG';
+}
+
 label {
   color: #333;
   font-family: 'Interface BD';
