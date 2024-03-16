@@ -10,7 +10,7 @@ input, textarea, select {
   border: 1px solid $cececeColor;
   border-radius: $borderInputRadius;
   background-color: #ffffff;
-  padding: 16px;
+  padding: 12px;
   color: #444;
 
   &::placeholder {
@@ -24,7 +24,7 @@ input.upload-file {
 
 textarea {
   resize: none;
-  height: 20vh;
+  height: 16vh;
 }
 
 button {
