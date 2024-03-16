@@ -26,7 +26,7 @@
   </div>
 
   <div class="field-container">
-    <label for="reporterActivityArea">Área de atuação do relator</label>
+    <label for="reporterActivityArea">Área de atuação do relator*</label>
     <select id="reporterActivityArea" formControlName="reporterActivityArea">
       <option value="volvo" selected hidden>Escolha uma opção</option>
       <option value="volvo">Volvo</option>
@@ -37,17 +37,17 @@
   </div>
 
   <div class="field-container">
-    <label for="date">Data</label>
+    <label for="date">Data*</label>
     <input type="date" formControlName="date" id="date">
   </div>
 
   <div class="field-container">
-    <label for="time">Hora</label>
+    <label for="time">Hora*</label>
     <input type="time" formControlName="time" id="time">
   </div>
 
   <div class="field-container">
-    <label for="location">Local</label>
+    <label for="location">Local*</label>
     <input type="text" formControlName="location" id="location">
   </div>
 
@@ -71,8 +71,13 @@
   </div>
 
   <div class="actions-container">
-    <button class="contrast" type="button" (click)="resetForm()">LIMPAR</button>
-    <button type="submit">ENVIAR</button>
+    <div>
+      <p>Campos de preenchimento obrigatório*</p>
+    </div>
+    <div class="btn-container">
+      <button class="contrast" type="button" (click)="resetForm()">LIMPAR</button>
+      <button type="submit">ENVIAR</button>
+    </div>
   </div>
 
 </form>

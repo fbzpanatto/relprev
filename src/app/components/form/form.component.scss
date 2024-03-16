@@ -4,11 +4,20 @@
   grid-area: span 1 / span 2;
 
   display: flex;
+  flex-direction: column;
   gap: 3vmin;
 
-  button {
-    flex: 1;
+  .btn-container {
+
+    display: flex;
+    gap: 3vmin;
+    
+    button {
+      flex: 1;
+    }
   }
+
+  
 }
 
 %fileContainerMinHeight {
@@ -133,12 +142,15 @@
         grid-column-start: 3;
 
         display: flex;
-        align-items: flex-end;
         gap: 3vmin;
+        flex-direction: column;
 
-        button {
-          max-height: 50px;
-          flex: 1;
+        .btn-container {
+          display: flex;
+          gap: 3vmin;
+          button {
+            flex: 1;
+          }
         }
       }
     }
