@@ -11,7 +11,7 @@
 
     display: flex;
     gap: 3vmin;
-    
+
     button {
       flex: 1;
     }
@@ -32,6 +32,7 @@
     gap: 2.5vmin;
 
     .field-container {
+      position: relative;
       display: flex;
       flex-direction: column;
       gap: 1vmin;
@@ -55,6 +56,43 @@
           }
         }
       }
+
+      &.custom-selector {
+
+        position: relative;
+        top: 0;
+
+        input {
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        .options {
+          position: absolute;
+          width: 100%;
+          top: 7.5vmin;
+          z-index: 1;
+          ul {
+            width: 100%;
+            background-color: #f8f8f8;
+            border: 1px solid #cecece;
+            border-radius: 4px;
+            list-style-type: none;
+            box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+            li {
+              text-transform: uppercase;
+              padding: 1vmin;
+              font-weight: bold;
+              &:hover {
+                color: $white;
+                cursor: pointer;
+                background-color: $darkGray444;
+              }
+            }
+          }
+        }
+      }
     }
 
     &.xsmall {
@@ -73,6 +111,10 @@
 
       .field-container.file-container {
         @extend %fileContainerMinHeight
+      }
+
+      .field-container.custom-selector .options {
+        top: 6vh;
       }
 
       input,
@@ -98,6 +140,10 @@
         grid-area: span 1 / span 2;
       }
 
+      .field-container.custom-selector .options {
+        top: 7.5vh;
+      }
+
       .field-container.file-container {
         @extend %fileContainerMinHeight
       }
@@ -106,27 +152,6 @@
         @extend %actionsContainerRowSettings;
       }
     }
-
-    // &.medium {
-
-    //   padding: 0 12vw;
-
-    //   grid-template-columns: auto auto;
-
-    //   .field-container:nth-of-type(9),
-    //   .field-container:nth-of-type(10),
-    //   .field-container:nth-of-type(11) {
-    //     grid-area: span 1 / span 2;
-    //   }
-
-    //   .field-container.file-container {
-    //     @extend %fileContainerMinHeight
-    //   }
-
-    //   .actions-container {
-    //     @extend %actionsContainerRowSettings;
-    //   }
-    // }
 
     &.xlarge {
       padding: 0 14vw;
@@ -152,6 +177,7 @@
         .btn-container {
           display: flex;
           gap: 3vmin;
+
           button {
             flex: 1;
           }
