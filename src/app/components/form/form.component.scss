@@ -68,6 +68,12 @@
           }
         }
 
+        img {
+          position: absolute;
+          top: 4vh;
+          right: 8px;
+        }
+
         .options {
           position: absolute;
           width: 100%;
@@ -113,8 +119,15 @@
         @extend %fileContainerMinHeight
       }
 
-      .field-container.custom-selector .options {
-        top: 6vh;
+      .field-container.custom-selector {
+
+        img {
+          top: 3vh;
+        }
+
+        .options {
+          top: 6vh;
+        }
       }
 
       input,
@@ -140,8 +153,15 @@
         grid-area: span 1 / span 2;
       }
 
-      .field-container.custom-selector .options {
-        top: 7.5vh;
+      .field-container.custom-selector {
+
+        img {
+          top: 3.8vh;
+        }
+
+        .options {
+          top: 7.5vh;
+        }
       }
 
       .field-container.file-container {
