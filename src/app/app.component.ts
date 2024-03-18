@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrls: ['./app.component.scss', '../styles/general.scss'],
   imports: [RouterOutlet, FormComponent, HeaderComponent, CommonModule]
 })
 export class AppComponent {

@@ -1,22 +1,33 @@
 @import '../styles/variables.scss';
 
 :host {
-  display: block;
   position: relative;
   min-width: 375px;
 
-  .something {
+  .toolbar {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
     position: sticky;
     top: 0;
-    background: yellow;
+    background: $darkBlue;
     min-height: 56px;
     z-index: 99;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+    p {
+      color: $white;
+    }
   }
 
   .container {
     display: flex;
     flex-direction: column;
     gap: 5vmin;
+
+    app-header {
+      padding-top: 5vh;
+    }
 
     app-form {
       background-color: #E9ECEF;

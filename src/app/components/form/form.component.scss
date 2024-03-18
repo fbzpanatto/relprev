@@ -12,13 +12,13 @@
   form {
     display: grid;
 
-    gap: 2.5vmin;
+    gap: 2vmin;
 
     .field-container {
       position: relative;
       display: flex;
       flex-direction: column;
-      gap: 1vmin;
+      gap: .2vmin;
 
       &.file-container {
         border-radius: 4px;
