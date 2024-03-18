@@ -96,7 +96,7 @@
         }
 
         .options {
-          top: 7.5vh;
+          top: 7.2vh;
         }
       }
 
@@ -116,6 +116,13 @@
 
       input {
         min-height: 46px;
+      }
+
+      .field-container.custom-selector {
+
+        .options {
+          top: 7.9vh;
+        }
       }
 
       .field-container:nth-of-type(10) {
