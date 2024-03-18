@@ -1,23 +1,5 @@
 @import '../../../styles/variables.scss';
 
-%actionsContainerRowSettings {
-  grid-area: span 1 / span 2;
-
-  display: flex;
-  flex-direction: column;
-  gap: 3vmin;
-
-  .btn-container {
-
-    display: flex;
-    gap: 3vmin;
-
-    button {
-      flex: 1;
-    }
-  }
-}
-
 %fileContainerMinHeight {
   .border {
     min-height: 150px;
@@ -30,16 +12,103 @@
   form {
 
     .wrapper {
-      padding: 4vmin;
+      min-width: 380px;
+      padding: 2vmin;
       border-radius: 4px;
       background: #E9ECEF;
       display: grid;
       gap: 2.5vmin;
     }
 
+    .field-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 1vmin;
+    
+      &.file-container {
+        border-radius: 4px;
+    
+        .border {
+          background-color: $white;
+          height: 100%;
+          border: 1px solid $cececeColor;
+          border-top-left-radius: $borderInputRadius;
+          border-top-right-radius: $borderInputRadius;
+          border-bottom: 1px solid $lightBlue;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-around;
+    
+          button {
+            border: 1px solid $darkBlue;
+            background-color: $darkBlue;
+          }
+    
+          .file-name {
+            white-space: nowrap;
+            padding: 0 2px;
+            font-size: 10pt;
+          }
+        }
+      }
+    
+      &.custom-selector {
+    
+        position: relative;
+        top: 0;
+    
+        input {
+          &:hover {
+            cursor: pointer;
+          }
+        }
+    
+        img {
+          position: absolute;
+          top: 4vh;
+          right: 8px;
+        }
+    
+        .options {
+          position: absolute;
+          width: 100%;
+          top: 7vh;
+          z-index: 1;
+    
+          ul {
+            width: 100%;
+            background-color: #f8f8f8;
+            border-radius: 4px;
+            list-style-type: none;
+            box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    
+            li {
+              text-transform: uppercase;
+              padding: 1vmin;
+              font-weight: bold;
+    
+              &:hover {
+                color: $white;
+                cursor: pointer;
+                background-color: $darkBlue;
+              }
+            }
+          }
+        }
+      }
+    }
+
     &.xsmall {
 
-      padding: 0 6vw;
+      .wrapper {
+        border-radius: 0;
+        gap: 1vmin;
+        padding: 2vmin;
+      }
+
+      padding: 0;
 
       grid-template-columns: auto auto;
 
@@ -70,10 +139,26 @@
       textarea,
       select {
         padding: 8px;
+        min-height: 38px;
       }
 
       .actions-container {
-        @extend %actionsContainerRowSettings;
+        grid-area: span 1 / span 2;
+
+        display: flex;
+        flex-direction: column;
+        gap: 3vmin;
+      
+        .btn-container {
+      
+          display: flex;
+          gap: 3vmin;
+          flex-direction: column;
+      
+          button {
+            flex: 1;
+          }
+        }
       }
     }
 
@@ -105,7 +190,21 @@
       }
 
       .actions-container {
-        @extend %actionsContainerRowSettings;
+        grid-area: span 1 / span 2;
+
+        display: flex;
+        flex-direction: column;
+        gap: 3vmin;
+      
+        .btn-container {
+      
+          display: flex;
+          gap: 3vmin;
+      
+          button {
+            flex: 1;
+          }
+        }
       }
     }
 
