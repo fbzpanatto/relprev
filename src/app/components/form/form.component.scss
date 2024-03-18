@@ -28,77 +28,13 @@
   display: block;
 
   form {
-    display: grid;
-    gap: 2.5vmin;
 
-    .field-container {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: 1vmin;
-
-      &.file-container {
-        border-radius: 4px;
-
-        .border {
-          height: 100%;
-          border: 1px solid $cececeColor;
-          border-radius: 4px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: space-around;
-
-          .file-name {
-            white-space: nowrap;
-            padding: 0 2px;
-            font-size: 10pt;
-          }
-        }
-      }
-
-      &.custom-selector {
-
-        position: relative;
-        top: 0;
-
-        input {
-          &:hover {
-            cursor: pointer;
-          }
-        }
-
-        img {
-          position: absolute;
-          top: 4vh;
-          right: 8px;
-        }
-
-        .options {
-          position: absolute;
-          width: 100%;
-          top: 7.5vmin;
-          z-index: 1;
-          ul {
-            width: 100%;
-            background-color: #f8f8f8;
-            border: 1px solid #cecece;
-            border-radius: 4px;
-            list-style-type: none;
-            box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-            li {
-              text-transform: uppercase;
-              padding: 1vmin;
-              font-weight: bold;
-              &:hover {
-                color: $white;
-                cursor: pointer;
-                background-color: $darkGray444;
-              }
-            }
-          }
-        }
-      }
+    .wrapper {
+      padding: 4vmin;
+      border-radius: 4px;
+      background: #E9ECEF;
+      display: grid;
+      gap: 2.5vmin;
     }
 
     &.xsmall {
@@ -177,6 +113,10 @@
       padding: 0 14vw;
 
       grid-template-columns: auto auto auto;
+
+      input {
+        min-height: 46px;
+      }
 
       .field-container:nth-of-type(10) {
         grid-area: span 2 / span 2;

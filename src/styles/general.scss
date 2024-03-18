@@ -11,16 +11,20 @@ label {
   color: $darkGray333;
   font-family: 'Interface BD';
   font-size: 10pt;
+  letter-spacing: .05rem;
 }
 
 input,
 textarea,
 select {
   border: 1px solid $cececeColor;
-  border-radius: $borderInputRadius;
+  border-top-left-radius: $borderInputRadius;
+  border-top-right-radius: $borderInputRadius;
   background-color: $white;
   padding: 12px;
   color: $darkGray444;
+  outline: none;
+  border-bottom: 1px solid $lightBlue;
 
   &::placeholder {
     font-style: italic;
@@ -45,15 +49,96 @@ button {
   letter-spacing: .1rem;
   font-weight: bold;
 
-  background-color: $darkGray444;
+  background-color: $darkBlue;
   color: $white;
+  border: 1px solid $darkBlue;
 
   &.contrast {
     background-color: $white;
-    color: $darkGray444;
+    color: $darkBlue;
   }
 
   &:hover {
     cursor: pointer;
+  }
+}
+
+.field-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1vmin;
+
+  &.file-container {
+    border-radius: 4px;
+
+    .border {
+      background-color: $white;
+      height: 100%;
+      border: 1px solid $cececeColor;
+      border-top-left-radius: $borderInputRadius;
+      border-top-right-radius: $borderInputRadius;
+      border-bottom: 1px solid $lightBlue;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+
+      button {
+        border: 1px solid $darkBlue;
+        background-color: $darkBlue;
+      }
+
+      .file-name {
+        white-space: nowrap;
+        padding: 0 2px;
+        font-size: 10pt;
+      }
+    }
+  }
+
+  &.custom-selector {
+
+    position: relative;
+    top: 0;
+
+    input {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    img {
+      position: absolute;
+      top: 4vh;
+      right: 8px;
+    }
+
+    .options {
+      position: absolute;
+      width: 100%;
+      top: 7.5vmin;
+      z-index: 1;
+
+      ul {
+        width: 100%;
+        background-color: #f8f8f8;
+        border-radius: 4px;
+        list-style-type: none;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+        li {
+          text-transform: uppercase;
+          padding: 1vmin;
+          font-weight: bold;
+
+          &:hover {
+            color: $white;
+            cursor: pointer;
+            background-color: $darkBlue;
+          }
+        }
+      }
+    }
   }
 }
