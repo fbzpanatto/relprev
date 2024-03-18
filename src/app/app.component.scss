@@ -2,6 +2,16 @@
 
 :host {
   display: block;
+  position: relative;
+  min-width: 375px;
+
+  .something {
+    position: sticky;
+    top: 0;
+    background: yellow;
+    min-height: 56px;
+    z-index: 99;
+  }
 
   .container {
     display: flex;
