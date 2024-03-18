@@ -17,9 +17,11 @@
       a {
         font-family: 'Interface BD';
         text-decoration: underline;
+
         &:hover {
           cursor: pointer;
         }
+
         &:visited {
           color: #333;
         }
@@ -27,15 +29,15 @@
     }
 
     &.xsmall {
-      padding: 0 20vw 0 2.5vw;
+      padding: 0 16px;
     }
-    
+
     &.small {
-      padding: 0 40vw 0 8vw;
+      padding-right: 20vw;
     }
 
     &.xlarge {
-      padding: 0 45vw 0 12vw;
+      padding-right: 30vw;
     }
   }
 }

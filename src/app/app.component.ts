@@ -3,13 +3,14 @@ import { RouterOutlet } from '@angular/router';
 import { FormComponent } from "./components/form/form.component";
 import { BreakpointObserver, Breakpoints, MediaMatcher } from '@angular/cdk/layout';
 import { HeaderComponent } from "./components/header/header.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [RouterOutlet, FormComponent, HeaderComponent]
+  imports: [RouterOutlet, FormComponent, HeaderComponent, CommonModule]
 })
 export class AppComponent {
 

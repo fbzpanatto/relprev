@@ -1,10 +1,31 @@
+@import '../styles/variables.scss';
+
 :host {
   display: block;
 
   .container {
     display: flex;
     flex-direction: column;
-
     gap: 5vmin;
+
+    app-form {
+      background-color: #E9ECEF;
+      padding: 16px;
+      border-radius: 4px;
+    }
+
+    &.xsmall {
+      app-form {
+        border-radius: 0px;
+      }
+    }
+
+    &.small {
+      padding: 0 10vw;
+    }
+
+    &.xlarge {
+      padding: 0 12vw;
+    }
   }
 }

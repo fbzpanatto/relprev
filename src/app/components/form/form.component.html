@@ -1,90 +1,88 @@
 <form [ngClass]="typeOfMedia()" (submit)="onSubmit()" [formGroup]="form">
 
-  <div class="wrapper">
-    <div class="field-container">
-      <label for="firstName">Nome</label>
-      <input type="text" formControlName="firstName" id="firstName" placeholder="digite seu nome...">
-    </div>
-  
-    <div class="field-container">
-      <label for="lastName">Sobrenome</label>
-      <input type="text" formControlName="lastName" id="lastName" placeholder="digite seu sobrenome...">
-    </div>
-  
-    <div class="field-container">
-      <label for="email">Email</label>
-      <input type="text" formControlName="email" id="email" placeholder="digite seu endereço de email...">
-    </div>
-  
-    <div class="field-container">
-      <label for="phoneNumber">Telefone</label>
-      <input type="text" formControlName="phoneNumber" id="phoneNumber" placeholder="digite seu nº de telefone...">
-    </div>
-  
-    <div class="field-container">
-      <label for="cellPhone">Celular</label>
-      <input type="text" formControlName="cellPhone" id="cellPhone" placeholder="digite seu nº de celular...">
-    </div>
-  
-    <div class="field-container custom-selector" clickOutside (clickOutside)="onOutsideClick()">
-      <label for="reporterActivityArea">Área de atuação do relator*</label>
-      <input type="text" [readOnly]="true" (click)="onSelectClick()" formControlName="reporterActivityArea">
-      @if(showSelectOptions()) {
-        <img src="assets/icons/expand_less.svg" alt="expand_less" style="width: 24px;">
-      } @else {
-        <img src="assets/icons/expand.svg" alt="expand" style="width: 24px;">
-      }
-      @if(showSelectOptions()) {
-      <div class="options">
-        <ul>
-          @for (option of options; track option.id){
-          <li (click)="onClickOption(option)">{{ option.value }}</li>
-          }
-        </ul>
-      </div>
-      }
-    </div>
-  
-    <div class="field-container">
-      <label for="date">Data*</label>
-      <input type="date" formControlName="date" id="date">
-    </div>
-  
-    <div class="field-container">
-      <label for="time">Hora*</label>
-      <input type="time" formControlName="time" id="time">
-    </div>
-  
-    <div class="field-container">
-      <label for="location">Local*</label>
-      <input type="text" formControlName="location" id="location">
-    </div>
-  
-    <div class="field-container">
-      <label for="description">Descrição*</label>
-      <textarea type="tex" formControlName="description" id="description"
-        placeholder="descreva o que ocorreu..."></textarea>
-    </div>
-  
-    <div class="field-container file-container">
-      <label for="upload-file">Anexe uma evidência se houver.</label>
-      <div class="border">
-        <input #uploadFile type="file" id="upload-file" class="upload-file">
-        <button type="button" (click)="setFile($event, uploadFile)">ANEXAR UM ARQUIVO</button>
-        @if(currentFileName) {
-        <span class="file-name">{{ currentFileName }}</span>
-        } @else {
-        <span class="file-name">Nenhum arquivo selecionado.</span>
+  <div class="field-container">
+    <label for="firstName">Nome</label>
+    <input type="text" formControlName="firstName" id="firstName" placeholder="digite seu nome...">
+  </div>
+
+  <div class="field-container">
+    <label for="lastName">Sobrenome</label>
+    <input type="text" formControlName="lastName" id="lastName" placeholder="digite seu sobrenome...">
+  </div>
+
+  <div class="field-container">
+    <label for="email">Email</label>
+    <input type="text" formControlName="email" id="email" placeholder="digite seu endereço de email...">
+  </div>
+
+  <div class="field-container">
+    <label for="phoneNumber">Telefone</label>
+    <input type="text" formControlName="phoneNumber" id="phoneNumber" placeholder="digite seu nº de telefone...">
+  </div>
+
+  <div class="field-container">
+    <label for="cellPhone">Celular</label>
+    <input type="text" formControlName="cellPhone" id="cellPhone" placeholder="digite seu nº de celular...">
+  </div>
+
+  <div class="field-container custom-selector" clickOutside (clickOutside)="onOutsideClick()">
+    <label for="reporterActivityArea">Área de atuação do relator*</label>
+    <input type="text" [readOnly]="true" (click)="onSelectClick()" formControlName="reporterActivityArea">
+    @if(showSelectOptions()) {
+    <img src="assets/icons/expand_less.svg" alt="expand_less" style="width: 24px;">
+    } @else {
+    <img src="assets/icons/expand.svg" alt="expand" style="width: 24px;">
+    }
+    @if(showSelectOptions()) {
+    <div class="options">
+      <ul>
+        @for (option of options; track option.id){
+        <li (click)="onClickOption(option)">{{ option.value }}</li>
         }
-      </div>
+      </ul>
     </div>
-  
-    <div class="actions-container">
-      <p>Campos de preenchimento obrigatório*</p>
-      <div class="btn-container">
-        <button class="contrast" type="button" (click)="resetForm()">LIMPAR</button>
-        <button type="submit">ENVIAR</button>
-      </div>
+    }
+  </div>
+
+  <div class="field-container">
+    <label for="date">Data*</label>
+    <input type="date" formControlName="date" id="date">
+  </div>
+
+  <div class="field-container">
+    <label for="time">Hora*</label>
+    <input type="time" formControlName="time" id="time">
+  </div>
+
+  <div class="field-container">
+    <label for="location">Local*</label>
+    <input type="text" formControlName="location" id="location">
+  </div>
+
+  <div class="field-container">
+    <label for="description">Descrição*</label>
+    <textarea type="tex" formControlName="description" id="description"
+      placeholder="descreva o que ocorreu..."></textarea>
+  </div>
+
+  <div class="field-container file-container">
+    <label for="upload-file">Anexe uma evidência se houver.</label>
+    <div class="border">
+      <input #uploadFile type="file" id="upload-file" class="upload-file">
+      <button type="button" (click)="setFile($event, uploadFile)">ANEXAR UM ARQUIVO</button>
+      @if(currentFileName) {
+      <span class="file-name">{{ currentFileName }}</span>
+      } @else {
+      <span class="file-name">Nenhum arquivo selecionado.</span>
+      }
+    </div>
+  </div>
+
+  <div class="actions-container">
+    <p>Campos de preenchimento obrigatório*</p>
+    <div class="btn-container">
+      <button class="contrast" type="button" (click)="resetForm()">LIMPAR</button>
+      <button type="submit">ENVIAR</button>
     </div>
   </div>
 
