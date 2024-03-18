@@ -2,7 +2,6 @@
 
 :host {
   position: relative;
-  min-width: 375px;
 
   .toolbar {
     display: flex;
@@ -20,6 +19,10 @@
     }
   }
 
+  .toolbar {
+    min-width: 375px;
+  }
+
   .container {
     display: flex;
     flex-direction: column;
@@ -30,6 +33,7 @@
     }
 
     app-form {
+      min-width: 375px;
       background-color: #E9ECEF;
       padding: 16px;
       border-radius: 4px;
