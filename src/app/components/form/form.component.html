@@ -68,10 +68,10 @@
   <div class="field-container file-container">
     <label for="upload-file">Anexe uma evidência se houver.</label>
     <div class="border">
-      <input #uploadFile type="file" id="upload-file" class="upload-file">
+      <input accept="image/*" #uploadFile type="file" id="upload-file" class="upload-file" (change)="handleFileChange($event)">
       <button type="button" (click)="setFile($event, uploadFile)">ANEXAR UM ARQUIVO</button>
-      @if(currentFileName) {
-      <span class="file-name">{{ currentFileName }}</span>
+      @if(currentFileName()) {
+      <span class="file-name">{{ currentFileName() }}</span>
       } @else {
       <span class="file-name">Nenhum arquivo selecionado.</span>
       }

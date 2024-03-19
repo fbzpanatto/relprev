@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, input, signal } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ClickOutsideDirective } from '../../directives/clickOutside.directive';
 
 @Component({
@@ -17,7 +17,7 @@ export class FormComponent implements OnInit {
 
   typeOfMedia = input('')
   showSelectOptions = signal(false)
-  #currentFileName?: string
+  #currentFileName = signal<string | undefined>(undefined)
 
   form = this.fb.group({
     firstName: ['', {
@@ -49,7 +49,8 @@ export class FormComponent implements OnInit {
     }],
     description: ['', {
       validators: [Validators.required]
-    }]
+    }],
+    file: new FormControl<File | undefined>(undefined)
   })
 
   constructor(private fb: FormBuilder) { }
@@ -80,10 +81,20 @@ export class FormComponent implements OnInit {
   }
 
   setFile($event: Event, el: HTMLInputElement) {
+
     $event.preventDefault()
     el.click()
-    const file = el.files?.item(0)
-    this.currentFileName = file?.name
+  }
+
+  handleFileChange($event: Event) {
+    const fileList = $event.target as HTMLInputElement
+    const firstFile = fileList.files?.item(0) as File
+    this.form.patchValue({ file: firstFile })
+    this.#currentFileName.update(value => value = firstFile?.name)
+  }
+
+  get currentFileName() {
+    return this.#currentFileName.asReadonly()
   }
 
   get options() {
@@ -97,7 +108,4 @@ export class FormComponent implements OnInit {
       { id: 7, value: 'Option 7' }
     ]
   }
-
-  get currentFileName() { return this.#currentFileName }
-  set currentFileName(value: string | undefined) { this.#currentFileName = value }
 }
